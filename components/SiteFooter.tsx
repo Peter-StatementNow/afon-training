@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { contactHref } from "@/lib/site";
 
 export default function SiteFooter() {
   return (
@@ -11,7 +10,7 @@ export default function SiteFooter() {
         </div>
         <nav className="footer-links" aria-label="Footer">
           <Link href="/courses">Courses</Link>
-          <a href={contactHref()}>Contact us</a>
+          <Link href="/contact">Contact us</Link>
           <Link href="/privacy">Privacy</Link>
         </nav>
       </div>
