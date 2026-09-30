@@ -60,6 +60,8 @@ const SCHEDULE: [string, string, string, string, number][] = [
   ["2027-06-17", "Mental Health Awareness", "13:00", "16:00", HALF_DAY],
   ["2027-06-22", "Medical Terminology for Non-Clinical Staff", "09:30", "16:30", FULL_DAY],
   ["2027-06-23", "Handling Abusive Patients and Conflict Resolution", "13:00", "16:00", HALF_DAY],
+  ["2027-06-24", "Excellent Customer Service and Improving the Patient Experience", "09:30", "16:30", FULL_DAY],
+  ["2027-07-07", "Preparing for a CQC Inspection", "09:30", "16:30", FULL_DAY],
 ];
 
 function slugify(text: string): string {
