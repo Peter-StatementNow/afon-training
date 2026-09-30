@@ -3,7 +3,7 @@ import Link from "next/link";
 import SitePage from "@/components/SitePage";
 import PageHeading from "@/components/PageHeading";
 import CourseCard from "@/components/CourseCard";
-import { upcomingCourses } from "@/lib/courses";
+import { groupByMonth, upcomingCourses } from "@/lib/courses";
 
 export const metadata: Metadata = { title: "Upcoming courses · AFon Training" };
 
@@ -25,8 +25,17 @@ export default function CoursesPage() {
       <section className="band band-tight">
         <div className="wrap">
           {courses.length > 0 ? (
-            <div className="course-list">
-              {courses.map((c) => <CourseCard key={c.slug} course={c} />)}
+            <div className="course-months">
+              {groupByMonth(courses).map((g) => (
+                <section key={g.month} aria-labelledby={`month-${g.month.replace(" ", "-")}`}>
+                  <h2 className="month-heading" id={`month-${g.month.replace(" ", "-")}`}>
+                    {g.month}
+                  </h2>
+                  <div className="course-list">
+                    {g.courses.map((c) => <CourseCard key={c.slug} course={c} />)}
+                  </div>
+                </section>
+              ))}
             </div>
           ) : (
             <div className="empty-state">

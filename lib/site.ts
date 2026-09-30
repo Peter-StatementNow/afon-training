@@ -1,5 +1,5 @@
 import type { Course } from "./courses";
-import { formatDate } from "./courses";
+import { formatDate, formatTimeRange } from "./courses";
 
 // Contact address for enquiries. Peter's address while the site is in testing;
 // swap for the AFon Training address once it exists.
@@ -15,6 +15,7 @@ export function contactHref(subject = "AFon Training enquiry", body?: string) {
 
 export function bookingHref(course: Course) {
   const date = formatDate(course.date);
+  const time = formatTimeRange(course);
   return contactHref(
     `Course booking enquiry: ${course.title} — ${date}`,
     [
@@ -24,11 +25,12 @@ export function bookingHref(course: Course) {
       "",
       `Course: ${course.title}`,
       `Date: ${date}`,
+      `Time: ${time}`,
+      "Number of places required:",
       "",
       "Name:",
       "Organisation:",
       "Telephone number:",
-      "Number of places required:",
       "",
       "Thank you.",
     ].join("\n"),
